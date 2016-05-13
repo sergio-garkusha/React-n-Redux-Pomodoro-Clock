@@ -1,0 +1,167 @@
+/**
+  * Table of Contents
+  * 1. General           - line 12
+  * 2. Header
+  *
+  *  Footer
+*/
+
+/* General */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #2c3643;
+}
+:focus {
+  outline: 0;
+}
+.wrapper {
+  max-width: 960px;
+  margin: 25px auto 0;
+  padding: 0 40px;
+}
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: #ededed;
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3) inset;
+}
+
+/* Header */
+header {
+  overflow: hidden;
+  text-align: center;
+  background-color: #ebebeb;
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3) inset;
+}
+header h1 {
+  width: 300px;
+  margin: 25px auto;
+}
+header h1 i {
+  font-family: serif;
+  color: #A2A2A2;
+}
+header h1 span {
+  text-transform: uppercase;
+  color: #575757;
+  font-size: 24px;
+  letter-spacing: 10px;
+  text-indent: 10px;
+  font-family: monospace;
+}
+.socials {
+  padding-bottom: 15px;
+  margin-top: -20px;
+}
+.socials a {
+  text-decoration: none;
+  color: #000;
+  margin-top: -10px;
+  font-size: 14px;
+  opacity: .5;
+  transition: opacity .5s linear;
+}
+.socials a:hover {
+  opacity: 1;
+}
+
+/*Controls*/
+/*Buttons*/
+.controls ul.buttons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  text-align: center;
+}
+.controls ul.buttons li {
+  flex: 1;
+  border-right: 1px solid #fff;
+  display: block;
+  height: 60px;
+}
+.controls ul.buttons li:last-child {
+  border-right: 0;
+}
+.controls ul.buttons li button {
+  background-color: #FF9632;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  font: 18px monospace;
+  color: #fff;
+  line-height: 60px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.controls ul.buttons li button:hover {
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.1) inset;
+}
+.controls ul.buttons li button:active {
+  box-shadow: 5px 4px 30px rgba(0, 0, 0, 0.3) inset;
+}
+
+/*Length Setter*/
+.controls .length-setter {
+  min-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+.controls .input-wrapper {
+  height: 20px;
+  min-width: 300px;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3) inset;
+}
+.controls .input-wrapper input {
+  border: 0;
+  width: 100%;
+  font: 24px serif;
+  background-color: rgba(0, 0, 0, 0);
+}
+.controls .length-setter h3 {
+  color: #A2A2A2;
+  font-size: 18px;
+  letter-spacing: 0px;
+  text-indent: 10px;
+  font-family: monospace;
+  text-align: center;
+}
+.controls .length-setter h3 span {
+  color: #575757;
+}
+
+/*Clock*/
+.clock {
+  padding: 0 0 55px;
+}
+.clock h2 {
+  text-transform: uppercase;
+  color: #575757;
+  font-size: 72px;
+  letter-spacing: 10px;
+  text-indent: 10px;
+  font-family: monospace;
+  margin: 0;
+  text-align: center;
+}
+
+/* Footer */
+footer p {
+  color: #A2A2A2;
+  text-align: center;
+  font-family: monospace;
+}
+footer a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity .5s linear;
+}
+footer a:hover {
+  opacity: 1;
+}

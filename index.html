@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React'n'Redux sandBox</title>
+  <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  <header>
+    <h1><i>React'n'Redux</i><br><span>sandBox</span></h1>
+    <div class="socials">
+      <a target="_blank" title="More on GitHub" href="//github.com/Cu7ious">GitHub</a>
+    </div>
+  </header>
+
+  <div class="wrapper">
+      <main id="app">
+
+        <section class="controls">
+          <ul class="buttons">
+            <li><button>Start</button></li>
+            <li><button>Pause</button></li>
+            <li><button>Clear</button></li>
+          </ul>
+          <div class="length-setter">
+            <div class="input-wrapper">
+              <input type="range" min="15" max="60" step="5" value="25">
+            </div>
+            <h3>Pomodoro Length: <span>25</span> minutes</h3>
+          </div>
+        </section>
+        <section class="clock">
+          <h2>25:00</h2>
+        </section>
+
+        <!-- <h1><span id="mins">25</span>:<span id="secs">00</span></h1> -->
+      </main>
+  </div>
+
+  <footer>
+    <p>Designed &amp; coded by <a href="//cu7io.us" target="_blank">Cu7ious</a></p>
+  </footer>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
