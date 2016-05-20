@@ -46,7 +46,7 @@ header h1 span {
   text-transform: uppercase;
   color: #575757;
   font-size: 24px;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   text-indent: 10px;
   font-family: monospace;
 }
@@ -79,7 +79,7 @@ header h1 span {
   flex: 1;
   border-right: 1px solid #fff;
   display: block;
-  height: 60px;
+  height: 85px;
 }
 .controls ul.buttons li:last-child {
   border-right: 0;
@@ -91,7 +91,7 @@ header h1 span {
   height: 100%;
   font: 18px monospace;
   color: #fff;
-  line-height: 60px;
+  line-height: 83px;
   cursor: pointer;
   text-transform: capitalize;
 }
@@ -111,15 +111,20 @@ header h1 span {
 }
 .controls .input-wrapper {
   height: 20px;
-  min-width: 300px;
+  min-width: 185px;
   border-radius: 50px;
-  padding: 10px;
+  float: left;
+  padding: 10px 15px 10px 11px;
   background-color: #fff;
-  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3) inset;
+  box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.3) inset;
+}
+.controls .input-wrapper:first-child {
+  margin-right: 14px;
 }
 .controls .input-wrapper input {
   border: 0;
   width: 100%;
+  margin-top: 3px;
   font: 24px serif;
   background-color: rgba(0, 0, 0, 0);
 }
