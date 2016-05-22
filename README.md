@@ -1,3 +1,3 @@
-# Minimal React'n'Redux Boilerplate
+#React'n'Redux Pomodoro Clock
 
-Webpack, Babel: es2015 & JSX support
+FreeCodeCamp educational project for "Intermediate Front End Development Projects" section
