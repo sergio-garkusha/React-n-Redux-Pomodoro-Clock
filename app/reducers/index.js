@@ -5,7 +5,7 @@ export const breakLength = (state = (5 * 60000), action) => {
   }
 }
 
-export const pomodoroLength = (state = 6000 || (25 * 60000), action) => {
+export const pomodoroLength = (state = (25 * 60000), action) => {
   switch (action.type) {
     case 'SET_POMODORO_LENGTH': return action.length
     default: return state
@@ -23,6 +23,7 @@ const timerInitState = {
   is_active:   false,
   was_started: false,
   is_finished: false,
+  paused:      false,
   time:        0
 }
 export const timer = (state = timerInitState, action) => {
@@ -58,7 +59,7 @@ export const timer = (state = timerInitState, action) => {
         paused: false,
         was_started: false,
         is_finished: false,
-        time: Number(action.timer.time)
+        time: 0
       }
     case 'FINISH_TIMER':
       return {

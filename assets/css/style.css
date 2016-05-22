@@ -17,7 +17,7 @@ html, body {
 }
 .wrapper {
   max-width: 960px;
-  margin: 25px auto 0;
+  margin: 50px auto 0;
   padding: 0 40px;
 }
 #app {
@@ -25,6 +25,7 @@ html, body {
   margin: 0 auto;
   background-color: #ededed;
   box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 50px;
 }
 
 /* Header */
@@ -41,6 +42,7 @@ header h1 {
 header h1 i {
   font-family: serif;
   color: #A2A2A2;
+  font-style: normal;
 }
 header h1 span {
   text-transform: uppercase;
@@ -53,6 +55,7 @@ header h1 span {
 .socials {
   padding-bottom: 15px;
   margin-top: -20px;
+  font-family: monospace;
 }
 .socials a {
   text-decoration: none;
@@ -84,12 +87,18 @@ header h1 span {
 .controls ul.buttons li:last-child {
   border-right: 0;
 }
+.controls ul.buttons li:first-child button {
+  border-radius: 30px 0 0 0;
+}
+.controls ul.buttons li:last-child button {
+  border-radius: 0 30px 0 0;
+}
 .controls ul.buttons li button {
   background-color: #FF9632;
   border: 0;
   width: 100%;
   height: 100%;
-  font: 18px monospace;
+  font: 24px monospace;
   color: #fff;
   line-height: 83px;
   cursor: pointer;
@@ -101,48 +110,132 @@ header h1 span {
 .controls ul.buttons li button:active {
   box-shadow: 5px 4px 30px rgba(0, 0, 0, 0.3) inset;
 }
+.controls ul.buttons li.is-button-active--true button {
+  background-color: #FF4013;
+}
+.controls ul.buttons li.is-button-active--true.activity-type--b button {
+  background-color: #29BE29;
+}
 
 /*Length Setter*/
 .controls .length-setter {
   min-width: 300px;
   margin: 0 auto;
+  overflow: hidden;
   padding: 20px;
+  display: flex;
+}
+.length-setter-module {
+  float: left;
+  margin-right: 10px;
+  flex: 1;
+}
+.length-setter-module:last-child {
+  margin: 0;
+}
+.controls .controll-wrapper {
+  font: 24px monospace;
+  text-align: center;
+  color: #A2A2A2;
   position: relative;
 }
-.controls .input-wrapper {
+.controls .length-setter h3 {
+  text-transform: capitalize;
+  color: #A2A2A2;
+  font-size: 18px;
+  font-weight: normal;
+  letter-spacing: 0px;
+  text-indent: 10px;
+  margin-left: 18px;
+  font-family: monospace;
+}
+.controls .controll-wrapper ul {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: -9px;
+  left: 26px;
+}
+.controls .controll-wrapper ul li {
+  width: 10px;
   height: 20px;
-  min-width: 185px;
+}
+.controls .controll-wrapper button {
+  color: #383730;
+  opacity: 0.6;
+  transition: opacity .3s linear;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+  font-family: monospace;
+  line-height: 24px;
+  cursor: pointer;
+}
+.controls .controll-wrapper button:hover {
+  opacity: 1;
+}
+.controls .controll-wrapper button:active {
+  color: #FF0000;
+}
+.controls .controll-wrapper button[disabled] {
+  color: #B9B9B9;
+  opacity: 0.6;
+  cursor: inherit;
+}
+.controls .length-setter span {
+  color: #575757;
   border-radius: 50px;
-  float: left;
-  padding: 10px 15px 10px 11px;
+  padding: 10px;
+  cursor: default;
   background-color: #fff;
   box-shadow: 1px 2px 30px rgba(0, 0, 0, 0.3) inset;
 }
-.controls .input-wrapper:first-child {
-  margin-right: 14px;
+.controls .length-setter span.controls-disabled {
+  color: #B9B9B9;
+  opacity: 0.8;
 }
-.controls .input-wrapper input {
-  border: 0;
-  width: 100%;
-  margin-top: 3px;
-  font: 24px serif;
-  background-color: rgba(0, 0, 0, 0);
-}
-.controls .length-setter h3 {
-  color: #A2A2A2;
-  font-size: 18px;
-  letter-spacing: 0px;
-  text-indent: 10px;
-  font-family: monospace;
-  text-align: center;
-}
-.controls .length-setter h3 span {
-  color: #575757;
+.controls .controll-wrapper i {
+  font-size: 16px;
 }
 
 /*Clock*/
 .clock {
-  padding: 0 0 55px;
+  padding: 0 0 100px;
+  position: relative;;
+}
+.clock ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 26px;
+  font: 12px sans-serif;
+  right: 80px;
+  color: #A2A2A2;
+  line-height: 21px;
+}
+.clock li {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.clock li.is-activity-current--true {
+  color: #FFF;
+}
+.clock li.is-activity-current--true:first-child {
+  background-color: #FF0000;
+}
+.clock li.is-activity-current--true:last-child {
+  background-color: #29BE29;
+}
+.clock li.is-actions-disabled--true {
+  cursor: default;
 }
 .clock h2 {
   text-transform: uppercase;
@@ -151,8 +244,14 @@ header h1 span {
   letter-spacing: 10px;
   text-indent: 10px;
   font-family: monospace;
-  margin: 0;
+  margin: 25px 0 10px;
   text-align: center;
+}
+.pomodoro-clock.clock h2 {
+  color: #FF0000;
+}
+.break-clock.clock h2 {
+  color: #29BE29;
 }
 
 /* Footer */

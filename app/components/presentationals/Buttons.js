@@ -11,18 +11,28 @@ class Buttons extends React.Component {
 
   _startTimer () {
     let p = this.props
-    let time = p.time || p.pomodoroLength
+    let activityType = p.activityType
+    let time
+    activityType = (activityType == "p") ? p.pomodoroLength : p.breakLength
+    time = p.timer.time || activityType
     p.acts.startTimer(time)
     p.sounds.tick.play()
   }
+
   _pauseTimer () {
     let p = this.props
-    let time = p.time || p.pomodoroLength
+    let activityType = p.activityType
+    let time
+    activityType = (activityType == "p") ? p.pomodoroLength : p.breakLength
+    time = p.timer.time || activityType
+    p.stopTimeout()
     p.acts.pauseTimer(time)
     p.sounds.tick.pause()
   }
+
   _clearTimer () {
     let p = this.props
+    p.stopTimeout()
     p.acts.clearTimer()
     p.sounds.tick.pause()
     p.sounds.alarm.pause()
@@ -31,10 +41,18 @@ class Buttons extends React.Component {
   }
 
   render () {
+    let p = this.props
+    // console.log(p);
+    let callback = p.disabled ? this._pauseTimer : this._startTimer
+    let text = p.disabled ? "Pause" : "Start"
+
     return (
       <ul className="buttons">
-        <li><button onClick={this._startTimer}>Start</button></li>
-        <li><button onClick={this._pauseTimer}>Pause</button></li>
+        <li className={
+            "is-button-active--" + p.timer.is_active
+            + " activity-type--" + p.activityType
+          }
+        ><button onClick={callback}>{text}</button></li>
         <li><button onClick={this._clearTimer}>Clear</button></li>
       </ul>
     )

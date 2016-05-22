@@ -30,55 +30,74 @@ class App extends React.Component {
     super(props)
     this.ONE_SEC = 1000
     this.counter
+    this.timeout
+
+    this.stopTimeout = this.stopTimeout.bind(this)
 
     this.tickSound = new Audio('../assets/sounds/Tick-tock-sound.mp3') // 00:26
     this.alarmSound = new Audio('../assets/sounds/Alarm-clock-sound-short.mp3') // 00:02
-
     this.tickSound.addEventListener('ended', function() {
       this.currentTime = 0
       this.play()
     }, false);
   }
 
+  stopTimeout () {
+    clearTimeout(this.timeout)
+  }
+
   componentDidUpdate () {
     const t = this
     const p = this.props
     const timer = this.props.timer
+    const length = (p.activity_type == "p") ? p.breakLength : p.pomodoroLength
 
-    if (!timer.is_active
-        && !timer.was_started
-        && !timer.paused
-        && timer.time > 0
-      ) {
+    const startTimeout = () => {
+      t.timeout = setTimeout(() => {
+        t.counter = t.counter - t.ONE_SEC
+        if (t.counter === 0) {
+          let type = (p.activity_type == "p") ? "b" : "p"
+          p.finishTimer()
+          p.setActivityType(type)
+          t.tickSound.pause()
+          t.tickSound.currentTime = 0
+          t.alarmSound.play()
+        } else {
+          p.tickTimer(t.counter)
+        }
+      }, t.ONE_SEC)
+    }
+
+    if (p.timer.is_finished) {
       p.clearTimer()
+      setTimeout(() => {
+        t.tickSound.play()
+        p.startTimer(length)
+      }, t.ONE_SEC)
     }
 
     if (timer.is_active) {
-      this.counter = (timer.time == 0) ? p.pomodoroLength : timer.time
+      let length = (p.activity_type == "p") ? p.pomodoroLength : p.breakLength
+      this.counter = (timer.time == 0) ? length : timer.time
       if (this.counter !== 0) {
-        setTimeout(() => {
-          this.counter = this.counter - t.ONE_SEC
-          if (this.counter === 0) {
-            p.finishTimer()
-            t.tickSound.pause()
-            t.tickSound.currentTime = 0
-            t.alarmSound.play()
-          } else {
-            p.tickTimer(this.counter)
-          }
-        }, t.ONE_SEC)
+        startTimeout()
       }
     }
   }
 
   render () {
     let p = this.props
+    let humanTime = (p.activity_type == "b") ? p.breakLength : p.pomodoroLength
     return (
       <div>
         <Controls
+          timer={p.timer}
           pomodoroLength={p.pomodoroLength}
           breakLength={p.breakLength}
+          activityType={p.activity_type}
+          stopTimeout={this.stopTimeout}
           acts={{
+            setActivityType: p.setActivityType,
             setBreakLength: p.setBreakLength,
             setPomodoroLength: p.setPomodoroLength,
             startTimer: p.startTimer,
@@ -89,11 +108,9 @@ class App extends React.Component {
             tick: this.tickSound,
             alarm: this.alarmSound
           }}
-          isActive={p.timer.is_active}
-          time={p.timer.time}
         />
-        <Clock timer={p.timer}>
-          {p.pomodoroLength}
+        <Clock timer={p.timer} type={p.activity_type} act={p.setActivityType}>
+          {humanTime}
         </Clock>
       </div>
     )
