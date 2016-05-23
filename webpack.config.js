@@ -9,7 +9,7 @@ module.exports = {
   ],
 
   output: {
-    path: './webpack',
+    path: './assets/js',
     filename: 'bundle.js'
   },
 
