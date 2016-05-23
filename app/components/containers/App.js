@@ -34,10 +34,8 @@ class App extends React.Component {
 
     this.stopTimeout = this.stopTimeout.bind(this)
 
-    // 00:26
-    this.tickSound = window.sounds.tick
-    // 00:02
-    this.alarmSound = window.sounds.alarm
+    this.tickSound = new Audio('../assets/sounds/Tick-tock-sound.mp3') // 00:26
+    this.alarmSound = new Audio('../assets/sounds/Alarm-clock-sound-short.mp3') // 00:02
     this.tickSound.addEventListener('ended', function() {
       this.currentTime = 0
       this.play()
