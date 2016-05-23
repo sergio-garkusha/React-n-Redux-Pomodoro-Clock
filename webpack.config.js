@@ -2,7 +2,7 @@
 // NODE_ENV=production webpack -p --config webpack.config.js
 
 module.exports = {
-  devtool: 'source-map',
+  // devtool: 'source-map',
 
   entry: [
     './app/core.js'
