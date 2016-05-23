@@ -34,8 +34,10 @@ class App extends React.Component {
 
     this.stopTimeout = this.stopTimeout.bind(this)
 
-    this.tickSound = new Audio('../assets/sounds/Tick-tock-sound.mp3') // 00:26
-    this.alarmSound = new Audio('../assets/sounds/Alarm-clock-sound-short.mp3') // 00:02
+    // 00:26
+    this.tickSound = new Audio('../assets/sounds/Tick-tock-sound.mp3') || '//cdn.rawgit.com/Cu7ious/React-n-Redux-Pomodoro-Clock/master/assets/sounds/Tick-tock-sound.mp3'
+    // 00:02
+    this.alarmSound = new Audio('../assets/sounds/Alarm-clock-sound-short.mp3') || '//cdn.rawgit.com/Cu7ious/React-n-Redux-Pomodoro-Clock/master/assets/sounds/Alarm-clock-sound-short.mp3'
     this.tickSound.addEventListener('ended', function() {
       this.currentTime = 0
       this.play()
