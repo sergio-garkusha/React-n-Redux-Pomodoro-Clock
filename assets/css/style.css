@@ -42,7 +42,6 @@ header h1 {
 header h1 i {
   font-family: serif;
   color: #A2A2A2;
-  font-style: normal;
 }
 header h1 span {
   text-transform: uppercase;
@@ -52,21 +51,11 @@ header h1 span {
   text-indent: 10px;
   font-family: monospace;
 }
-.socials {
-  padding-bottom: 15px;
-  margin-top: -20px;
-  font-family: monospace;
-}
-.socials a {
-  text-decoration: none;
-  color: #000;
-  margin-top: -10px;
-  font-size: 14px;
-  opacity: .5;
-  transition: opacity .5s linear;
-}
-.socials a:hover {
-  opacity: 1;
+.github-badge {
+  position: absolute;
+  top: 37px;
+  width: 50px;
+  right: 17px;
 }
 
 /*Controls*/

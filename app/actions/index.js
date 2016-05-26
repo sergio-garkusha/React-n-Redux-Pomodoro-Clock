@@ -30,8 +30,7 @@ export const clearTimer = () => ({
     time: 0,
     is_finished: false,
     is_active: false,
-    paused: false,
-    was_started: false
+    paused: false
   }
 })
 export const finishTimer = () => ({
@@ -39,7 +38,6 @@ export const finishTimer = () => ({
   timer: {
     time: 0,
     is_finished: true,
-    was_started: true,
     paused: false,
     is_active: false
   }

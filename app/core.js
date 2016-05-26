@@ -1,12 +1,13 @@
 /**
 state = {
-  length:             (25min / 60000) [time in miliseconds]
-  activity_type:      'p'   [string] p/b
+  breakLength:        (5min / 60000) [time in miliseconds]
+  pomodoroLength:     (25min / 60000) [time in miliseconds]
+  activity_type:      'p' [string] p/b
   timer:              object
     is_active:        false [bool]
-    was_started:      false [bool]
     is_finished:      false [bool]
-    time:             (25min / 60000) [time in miliseconds] || -1
+    paused:           false [bool]
+    time:             (0) [time in miliseconds] || -1
 }
  */
 import { createStore, combineReducers } from 'redux'

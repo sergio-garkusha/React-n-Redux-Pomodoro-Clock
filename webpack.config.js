@@ -3,7 +3,6 @@
 
 module.exports = {
   // devtool: 'source-map',
-
   entry: [
     './app/core.js'
   ],
@@ -15,7 +14,7 @@ module.exports = {
 
   devServer: {
     inline: true,
-    port: process.env.PORT
+    port: 3000
   },
 
   module: {

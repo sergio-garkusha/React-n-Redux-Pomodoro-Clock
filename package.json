@@ -4,7 +4,8 @@
   "description": "Minimal React'n'Redux Boilerplate. Webpack, Babel: es2015 & JSX support",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "bundle": "NODE_ENV=production node_modules/webpack/bin/webpack.js -p --config webpack.config.js"
   },
   "keywords": [
     "React", "Redux", "Webpack", "Babel", "JSX", "es2015"

@@ -21,7 +21,6 @@ export const activity_type = (state = 'p', action) => {
 
 const timerInitState = {
   is_active:   false,
-  was_started: false,
   is_finished: false,
   paused:      false,
   time:        0
@@ -32,7 +31,6 @@ export const timer = (state = timerInitState, action) => {
     case 'START_TIMER':
       return {
         is_active: action.timer.is_active,
-        was_started: state.was_started,
         is_finished: action.timer.is_finished,
         paused: state.paused,
         time: Number(action.timer.time)
@@ -41,7 +39,6 @@ export const timer = (state = timerInitState, action) => {
       return {
         is_active: action.timer.is_active,
         paused: action.timer.paused,
-        was_started: state.was_started,
         is_finished: state.is_finished,
         time: Number(action.timer.time)
       }
@@ -49,7 +46,6 @@ export const timer = (state = timerInitState, action) => {
       return {
         is_active: state.is_active,
         paused: state.paused,
-        was_started: state.was_started,
         is_finished: state.is_finished,
         time: Number(action.timer.time)
       }
@@ -57,7 +53,6 @@ export const timer = (state = timerInitState, action) => {
       return {
         is_active: false,
         paused: false,
-        was_started: false,
         is_finished: false,
         time: 0
       }
@@ -65,7 +60,6 @@ export const timer = (state = timerInitState, action) => {
       return {
         is_active: false,
         paused: false,
-        was_started: false,
         is_finished: true,
         time: Number(action.timer.time)
       }
