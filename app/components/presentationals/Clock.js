@@ -16,7 +16,7 @@ class Clock extends React.Component {
     const p = this.props
     let fin = p.timer.is_finished
     let stateRelatedCallback = this.setActivityType
-    let clockCSSClass = "", indicators
+    let clockCSSClass = ""
     let time, humanTime, status
     let hours, mins, secs
 
