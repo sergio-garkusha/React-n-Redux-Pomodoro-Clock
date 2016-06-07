@@ -42,13 +42,3 @@ export const finishTimer = () => ({
     is_active: false
   }
 })
-
-// *** DEBUG *** //
-window.setBreakLength = setBreakLength
-window.setPomodoroLength = setPomodoroLength
-window.setActivityType = setActivityType
-window.startTimer = startTimer
-window.tickTimer = tickTimer
-window.clearTimer = clearTimer
-window.pauseTimer = pauseTimer
-window.finishTimer = finishTimer
